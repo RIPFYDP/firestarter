@@ -1,0 +1,14 @@
+{
+  "name": "firestarter",
+  "version": "0.0.1",
+  "description": "Landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jason Kim",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^0.18.0"
+  }
+}

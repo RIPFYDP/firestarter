@@ -7,9 +7,7 @@ var taskHelpers = require('./task_helpers');
 var tasks = {
   seed: function(env) {
     return Q.fcall(taskHelpers.mongooseConnect, env)
-    .then(taskHelpers.insertWebpages)
-    .then(taskHelpers.insertEntities)
-    .then(taskHelpers.associateWepagesEntities)
+    .then(taskHelpers.insertEarlybirds)
     .fin(taskHelpers.mongooseClose);
   }
 };

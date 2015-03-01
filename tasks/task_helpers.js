@@ -5,8 +5,7 @@ var mongoose = require('mongoose');
 var devEnv = require('../config/environments/development');
 var testEnv = require('../config/environments/test');
 
-var Webpage = require('../app/models/webpage');
-var Entity = require('../app/models/entity');
+var Earlybird = require('../app/models/earlybird');
 
 var taskHelpers = {
   mongooseConnect: function(env) {
@@ -27,42 +26,8 @@ var taskHelpers = {
     return deferred.promise;
   },
 
-  insertWebpages: function() {
-    var count = 3;
-    var webpages = [];
-
-    _.times(count, function(num) {
-      webpages.push({
-        url: 'http://reddit' + num + '.com',
-        body: 'body',
-        entities: []
-      });
-    });
-
-    var operations = _.map(webpages, Webpage.insertOneQ);
-
-    return Q.all(operations);
-  },
-
-  insertEntities: function(webpages) {
-    var count = 5;
-    var entities = [];
-
-    _.times(count, function(num) {
-      var randomNumber = _.random(0, webpages.length - 1);
-      var webpage_id = webpages[randomNumber]._id.toString();
-
-      var entity = {
-        _webpage: webpage_id,
-        selector: '#main'
-      };
-
-      entities.push(entity);
-    });
-
-    var operations = _.map(entities, Entity.insertOneAndGetValueQ);
-
-    return Q.all(operations);
+  insertEarlybirds: function() {
+    return null
   },
 
   mongooseClose: function() {

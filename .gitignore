@@ -1,5 +1,9 @@
 #### joe made this: https://goel.io/joe
 
+# Express
+public/.sass-cache/*
+public/stylesheets/*.css
+
 #####=== Node ===#####
 
 # Logs

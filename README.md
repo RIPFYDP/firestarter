@@ -1,6 +1,6 @@
 # Firestarter
 
-Landing pages
+Landing pages for early adopters
 
 ## Apps
 

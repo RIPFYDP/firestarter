@@ -1,5 +1,7 @@
 # Firestarter
 
+Landing pages
+
 ## Apps
 
 | Environments        | IP              |

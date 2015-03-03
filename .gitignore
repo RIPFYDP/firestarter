@@ -61,4 +61,4 @@ Temporary Items
 .apdisk
 
 #####=== Bower ===#####
-bower_components
+public/bower_components

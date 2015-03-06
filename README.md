@@ -7,3 +7,8 @@ Landing pages for early adopters
 | Environments        | IP              |
 | ------------------- | --------------- |
 | firestarter-staging | 104.236.223.181 |
+
+## Stack
+
+- nginx
+- express.js

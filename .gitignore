@@ -2,6 +2,7 @@
 
 # Express
 public/.sass-cache/*
+public/assets/.sass-cache/*
 
 #####=== Node ===#####
 
@@ -60,4 +61,4 @@ Temporary Items
 .apdisk
 
 #####=== Bower ===#####
-public/bower_components
+public/assets/bower_components

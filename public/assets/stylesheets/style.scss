@@ -5,7 +5,7 @@ body {
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 
   #main {
-    width: 680px;
+    max-width: 680px;
   }
 
   h1, h2, h3 {
@@ -17,7 +17,7 @@ body {
   }
   .logo {
     font-family: 'Handlee', cursive;
-    font-size: 96px;
+    font-size: 64px;
     margin-bottom: 48px;
   }
 

@@ -1,9 +1,9 @@
 var Q = require('q');
 
-var controlPanelController = {
+var pagesController = {
   index: function(req, res, next) {
     res.render('pages/index');
   }
 };
 
-module.exports = controlPanelController;
+module.exports = pagesController;

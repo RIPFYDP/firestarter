@@ -12,7 +12,7 @@ var flash = require('flash');
 var routes = require('../routes');
 var swigHelpers = require('../helpers/swig_helpers');
 
-var development = {
+var staging = {
   database: {
     brand: 'mongodb',
     name: 'mongo-staging',
@@ -76,4 +76,4 @@ var development = {
   }
 };
 
-module.exports = development;
+module.exports = staging;

@@ -28,7 +28,7 @@ environment = {
   },
 
   setVariables: function() {
-    var variables = JSON.parse(fs.readFileSync('/etc/firestarter/firestarter', 'utf8'));
+    var variables = JSON.parse(fs.readFileSync('/etc/firestarter/firestarter.json', 'utf8'));
     environment.current.variables = variables;
   }
 };

@@ -1,7 +1,8 @@
 var fs = require('fs');
 
 var global = {
-  setVariables: function(app) {
+  // TODO: change to async
+  setEnvVariables: function() {
     var variables = {};
     var fileLocation = '/etc/firestarter/firestarter.json';
 
@@ -10,6 +11,8 @@ var global = {
       var file = fs.readFileSync(fileLocation, 'utf8');
       variables = JSON.parse(file);
     }
+
+    process.env.ENV_VARIABLES = variables;
   }
 };
 

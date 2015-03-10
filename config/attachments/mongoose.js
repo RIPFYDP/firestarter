@@ -9,13 +9,14 @@ Mongoose.prototype.connect = function() {
   var deferred = Q.defer();
   var url = environment.current.database.fullUrl;
   var options = {};
+  var variables = process.env.ENV_VARIABLES;
 
-  if (_.isEmpty(environment.current.variables.APP_MONGODB_USERNAME)
-    && _.isEmpty()) {
+  if (_.isEmpty(variables.APP_MONGODB_USERNAME)
+    && _.isEmpty(variables.APP_MONGODB_PASSWORD)) {
 
     options = {
-      user: environment.current.variables.APP_MONGODB_USERNAME,
-      pass: environment.current.variables.APP_MONGODB_PASSWORD
+      user: variables.APP_MONGODB_USERNAME,
+      pass: variables.APP_MONGODB_PASSWORD
     };
 
     mongoose.connect(url, options, function(err) {

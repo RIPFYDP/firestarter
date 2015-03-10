@@ -24,21 +24,7 @@ environment = {
         environment.current = development;
     }
 
-    environment.setVariables();
     environment.current.init(app);
-  },
-
-  setVariables: function() {
-    var variables = {};
-    var fileLocation = '/etc/firestarter/firestarter.json';
-
-    // Damn it, I like using #existsSync()
-    if (fs.existsSync(fileLocation)) {
-      var file = fs.readFileSync(fileLocation, 'utf8');
-      variables = JSON.parse(file);
-    }
-
-    environment.current.variables = variables;
   }
 };
 

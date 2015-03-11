@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 var Q = require('q');
 var _ = require('lodash');
 var validator = require('validator');
+var Email = require('./email');
 
 var validators = {
   isEmail: function(val) {

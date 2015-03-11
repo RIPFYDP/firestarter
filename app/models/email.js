@@ -8,13 +8,13 @@ var Email = {
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.ENV_VARIABLES.GMAIL_USER,
-        pass: process.env.ENV_VARIABLES.GMAIL_PASS
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
       }
     });
 
     var data = {
-      from: process.env.ENV_VARIABLES.GMAIL_USER,
+      from: process.env.GMAIL_USER,
       to: to,
       subject: subject,
       message: message
@@ -24,7 +24,6 @@ var Email = {
       if (err) {
         return deferred.reject(err);
       }
-
       return deferred.resolve(result);
     });
 

@@ -9,7 +9,7 @@ Mongoose.prototype.connect = function() {
   var deferred = Q.defer();
   var url = environment.current.database.fullUrl;
   var options = {};
-  var variables = process.env.ENV_VARIABLES;
+  var variables = process.env;
 
   if (_.isEmpty(variables.APP_MONGODB_USERNAME)
     && _.isEmpty(variables.APP_MONGODB_PASSWORD)) {

@@ -35,6 +35,22 @@ gulp.task('nodemon', function() {
   }).on('restart');
 });
 
+gulp.task('db:development:drop', function() {
+  Mongo.connect(development.database.fullUrl, function(err, db) {
+    assert.equal(null, err);
+
+    db.dropDatabase(function(err, result) {
+      assert.equal(null, err);
+
+      // Wait to seconds to let it replicate across
+      setTimeout(function() {
+
+        db.close();
+      }, 2000);
+    });
+  });
+});
+
 gulp.task('db:test:drop', function() {
   var deferred = Q.defer();
 

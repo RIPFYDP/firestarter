@@ -9,7 +9,7 @@ var pagesController = {
   postSignUp: function(req, res) {
     var email = req.body.email;
 
-    Earlybird.insertOneQ({ email: email })
+    Earlybird.insertOneAndSendEmailQ({ email: email })
     .then(function(earlybird) {
       req.flash('success', 'Thank you for signing up!');
       return res.redirect('/');

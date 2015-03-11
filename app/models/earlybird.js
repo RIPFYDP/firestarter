@@ -35,3 +35,23 @@ Earlybird.insertOneQ = function(data) {
 
   return deferred.promise;
 };
+
+Earlybird.insertOneAndSendEmailQ = function(data) {
+  var deferred = Q.defer();
+  var returnEB;
+
+  Earlybird.insertOneQ(data)
+  .then(function(earlybird) {
+    returnEB = earlybird;
+    return Email.sendDefault(earlybird.email);
+  }, function(err) {
+    return deferred.reject(err);
+  })
+  .then(function(result) {
+    return deferred.resolve(returnEB);
+  }, function(err) {
+    return deferred.reject(err);
+  });
+
+  return deferred.promise;
+};

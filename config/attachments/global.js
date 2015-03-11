@@ -1,4 +1,5 @@
 var fs = require('fs');
+var _ = require('lodash');
 
 var global = {
   // TODO: change to async
@@ -12,7 +13,9 @@ var global = {
       variables = JSON.parse(file);
     }
 
-    process.env.ENV_VARIABLES = variables;
+    _.each(variables, function(value, key) {
+      process.env[key] = value;
+    });
   }
 };
 

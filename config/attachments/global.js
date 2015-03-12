@@ -16,6 +16,8 @@ var global = {
     _.each(variables, function(value, key) {
       process.env[key] = value;
     });
+
+    process.env.APP_NAME = '6Compass';
   }
 };
 

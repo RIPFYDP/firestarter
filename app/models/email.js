@@ -32,7 +32,7 @@ var Email = {
 
   sendDefault: function(to) {
     var deferred = Q.defer();
-    var subject = 'Hello';
+    var subject = 'Verify email signup for ' + process.env.APP_NAME;
     var message = 'This is a test';
 
     Email.send(to, subject, message)

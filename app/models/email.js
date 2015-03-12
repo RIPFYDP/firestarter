@@ -33,7 +33,12 @@ var Email = {
   sendDefault: function(to) {
     var deferred = Q.defer();
     var subject = 'Verify email signup for ' + process.env.APP_NAME;
-    var message = 'This is a test';
+    var message = 'Hello,\n'
+                + 'To verify your account email, simply click the link below.\n'
+                + '\n'
+                + 'https://6compass.com/verify-email/123456'
+                + '\n'
+                + 'Thanks.';
 
     Email.send(to, subject, message)
     .then(function(result) {

@@ -12,3 +12,9 @@ Landing pages for early adopters
 
 - nginx
 - express.js
+
+## Todo
+
+- Need to fix db:seed
+- Email verification
+- CircleCI

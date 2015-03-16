@@ -4,6 +4,7 @@ var Q = require('q');
 var _ = require('lodash');
 var validator = require('validator');
 var Email = require('./email');
+var Verification = require('./verification');
 
 var validators = {
   isEmail: function(val) {
@@ -43,7 +44,12 @@ Earlybird.insertOneAndSendEmailQ = function(data) {
   Earlybird.insertOneQ(data)
   .then(function(earlybird) {
     returnEB = earlybird;
-    return Email.sendDefault(earlybird.email);
+    return Verification.prepareQ(earlybird.id);
+  }, function(err) {
+    return deferred.reject(err);
+  })
+  .then(function(verification) {
+    return Email.sendDefault(returnEB.email, verification.trail);
   }, function(err) {
     return deferred.reject(err);
   })

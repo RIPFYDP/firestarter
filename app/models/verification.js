@@ -11,7 +11,7 @@ var verificationSchema = new Schema({
   _earlybird: { type: Schema.Types.ObjectId, ref: 'Earlybird' }
 });
 
-var Verification = mongoose.model('Verification', earlybirdSchema);
+var Verification = mongoose.model('Verification', verificationSchema);
 module.exports = Verification;
 
 Verification.prepareQ = function(earlybirdId) {

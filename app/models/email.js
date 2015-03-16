@@ -30,13 +30,13 @@ var Email = {
     return deferred.promise;
   },
 
-  sendDefault: function(to) {
+  sendDefault: function(to, trail) {
     var deferred = Q.defer();
-    var subject = 'Verify email signup for ' + process.env.APP_NAME;
+    var subject = 'Verify email signup for ' + process.env.APP_NAME + trail;
     var message = 'Hello,\n'
                 + 'To verify your account email, simply click the link below.\n'
                 + '\n'
-                + 'https://6compass.com/verify-email/123456'
+                + 'https://6compass.com/verify-email/' + trail +
                 + '\n'
                 + 'Thanks.';
 

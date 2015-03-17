@@ -4,7 +4,6 @@ var Q = require('q');
 var _ = require('lodash');
 var validator = require('validator');
 var Email = require('./email');
-var Verification = require('./verification');
 
 var validators = {
   isEmail: function(val) {
@@ -23,6 +22,8 @@ var earlybirdSchema = new Schema({
 
 var Earlybird = mongoose.model('Earlybird', earlybirdSchema);
 module.exports = Earlybird;
+
+var Verification = require('./verification');
 
 Earlybird.insertOneQ = function(data) {
   var deferred = Q.defer();
@@ -57,6 +58,20 @@ Earlybird.insertOneAndSendEmailQ = function(data) {
     return deferred.resolve(returnEB);
   }, function(err) {
     return deferred.reject(err);
+  });
+
+  return deferred.promise;
+};
+
+Earlybird.findOneQ = function(conditions) {
+  var deferred = Q.defer();
+
+  Earlybird.findOne(conditions, function(err, result) {
+    if (err) {
+      return deferred.reject(err);
+    }
+
+    return deferred.resolve(result);
   });
 
   return deferred.promise;

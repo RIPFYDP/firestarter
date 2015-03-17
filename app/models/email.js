@@ -48,6 +48,22 @@ var Email = {
     });
 
     return deferred.promise;
+  },
+
+  verifiedQ: function(earlybird) {
+    var deferred = Q.defer();
+    var subject = 'Your email is verified!';
+    var message = 'Your email is verified! We\'ll send you an invite when we launch. In the meantime, please follow @6compass on Twitter to hear the latest news.';
+    var to = earlybird.email;
+
+    Email.send(to, subject, message)
+    .then(function(result) {
+      return deferred.resolve(result);
+    }, function(err) {
+      return deferred.reject(err);
+    });
+
+    return deferred.promise;
   }
 };
 

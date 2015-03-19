@@ -35,4 +35,24 @@ describe('earlybird model', function() {
     });
   });
 
+  it('.findOneQ', function(done) {
+    var eb = { email: faker.internet.email() };
+
+    Earlybird.insertOneQ(eb)
+    .then(function(earlybird) {
+      return Earlybird.findOneQ({ email: eb.email });
+    })
+    .then(function(earlybird) {
+      expect(earlybird).to.be.a('object');
+      expect(earlybird.email).to.equal(eb.email);
+      done();
+    })
+    .catch(function (error) {
+      console.log('error:', err);
+      expect(err).to.equal(null);
+      done();
+    })
+    .done();
+  });
+
 });

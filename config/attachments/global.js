@@ -18,6 +18,8 @@ var global = {
     });
 
     process.env.APP_NAME = '6Compass';
+    process.env.PROTOCOL = 'http';
+    process.env.HOST = 'localhost:3000';
   }
 };
 

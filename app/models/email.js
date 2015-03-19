@@ -17,7 +17,7 @@ var Email = {
       from: process.env.GMAIL_USER,
       to: to,
       subject: subject,
-      message: message
+      text: message
     };
 
     transporter.sendMail(data, function(err, result) {
@@ -32,11 +32,15 @@ var Email = {
 
   sendDefault: function(to, trail) {
     var deferred = Q.defer();
-    var subject = 'Verify email signup for ' + process.env.APP_NAME + trail;
+    var subject = 'Verify email signup for ' + process.env.APP_NAME;
     var message = 'Hello,\n'
                 + 'To verify your account email, simply click the link below.\n'
                 + '\n'
-                + 'https://6compass.com/verify-email/' + trail +
+                + process.env.PROTOCOL
+                + '://'
+                + process.env.HOST
+                + '/verify/'
+                + trail
                 + '\n'
                 + 'Thanks.';
 

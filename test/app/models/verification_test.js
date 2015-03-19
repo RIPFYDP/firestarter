@@ -6,7 +6,7 @@ var app = require('../../../app');
 var faker = require('faker');
 
 var Verification = require('../../../app/models/verification');
-var Earlybird = require('../../../app/models/earlybird')
+var Earlybird = require('../../../app/models/earlybird');
 
 describe('verification model', function() {
 
@@ -28,7 +28,7 @@ describe('verification model', function() {
     Earlybird.insertOneQ(eb)
     .then(function(earlybird) {
       earlybirdId = earlybird._id;
-      return Verification.prepareQ(earlybird._id)
+      return Verification.prepareQ(earlybird._id);
     })
     .then(function(verification) {
       expect(verification).to.be.a('object');

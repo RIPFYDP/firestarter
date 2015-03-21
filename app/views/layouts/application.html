@@ -25,6 +25,13 @@
     {% include "./_alert.html" %}
 
     {% block content %}{% endblock %}
+
+    <pre>
+      {{ diagnostics.GMAIL_USER }}
+      {{ diagnostics.GMAIL_PASS }}
+      {{ diagnostics.APP_MONGODB_USERNAME }}
+      {{ diagnostics.NODE_ENV }}
+    </pre>
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

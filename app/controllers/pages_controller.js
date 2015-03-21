@@ -3,7 +3,14 @@ var Earlybird = require('../models/earlybird');
 
 var pagesController = {
   index: function(req, res, next) {
-    res.render('pages/index');
+    // TODO: Show in dev and staging only
+    var diagnostics = {
+      GMAIL_USER: process.env.GMAIL_USER,
+      GMAIL_PASS: process.env.GMAIL_PASS,
+      NODE_ENV: process.env.NODE_ENV
+    };
+
+    res.render('pages/index', { diagnostics: diagnostics });
   },
 
   postSignUp: function(req, res) {
